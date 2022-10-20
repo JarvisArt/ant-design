@@ -1,22 +1,22 @@
 ---
-order: 0
+order: 8
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 扩展菜单
+  en-US: Custom dropdown
 ---
 
 ## zh-CN
 
-最简单的下拉菜单。
+使用 `dropdownRender` 对下拉菜单进行自由扩展。
 
 ## en-US
 
-The most basic dropdown menu.
+Customize the dropdown menu via `dropdownRender`.
 
 ```tsx
-import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Dropdown, Space } from 'antd';
+import { Dropdown, Space, Divider, Button } from 'antd';
 import React from 'react';
 
 const items: MenuProps['items'] = [
@@ -35,8 +35,6 @@ const items: MenuProps['items'] = [
         2nd menu item (disabled)
       </a>
     ),
-    icon: <SmileOutlined />,
-    disabled: true,
   },
   {
     key: '3',
@@ -45,17 +43,22 @@ const items: MenuProps['items'] = [
         3rd menu item (disabled)
       </a>
     ),
-    disabled: true,
-  },
-  {
-    key: '4',
-    danger: true,
-    label: 'a danger item',
   },
 ];
 
 const App: React.FC = () => (
-  <Dropdown menu={{ items }}>
+  <Dropdown
+    menu={{ items }}
+    dropdownRender={menu => (
+      <>
+        {menu}
+        <Divider style={{ margin: 0 }} />
+        <Space style={{ padding: 8 }}>
+          <Button type="primary">Click me!</Button>
+        </Space>
+      </>
+    )}
+  >
     <a onClick={e => e.preventDefault()}>
       <Space>
         Hover me

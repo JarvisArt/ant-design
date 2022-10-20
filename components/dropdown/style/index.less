@@ -115,6 +115,11 @@
     right: 16px;
   }
 
+  &-content {
+    background-color: @dropdown-menu-bg;
+    box-shadow: @box-shadow-base;
+  }
+
   &-menu {
     position: relative;
     margin: 0;
@@ -125,7 +130,6 @@
     background-clip: padding-box;
     border-radius: @border-radius-base;
     outline: none;
-    box-shadow: @box-shadow-base;
 
     &-item-group-title {
       padding: 5px @control-padding-horizontal;
@@ -139,6 +143,10 @@
       background: transparent;
       box-shadow: none;
       transform-origin: 0 0;
+
+      .@{dropdown-prefix-cls}-menu {
+        box-shadow: @box-shadow-base;
+      }
 
       ul,
       li {
