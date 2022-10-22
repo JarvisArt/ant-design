@@ -61,21 +61,21 @@ export interface DropdownProps {
    */
   visible?: boolean;
   open?: boolean;
-  disabled?: boolean;
-  destroyPopupOnHide?: boolean;
-  align?: Align;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
-  transitionName?: string;
-  placement?: Placement;
+  disabled?: boolean;
+  align?: Align;
+  destroyPopupOnHide?: boolean;
   overlayClassName?: string;
   overlayStyle?: React.CSSProperties;
   forceRender?: boolean;
+  transitionName?: string;
+  placement?: Placement;
   mouseEnterDelay?: number;
+  children?: React.ReactNode;
   mouseLeaveDelay?: number;
   openClassName?: string;
-  children?: React.ReactNode;
 }
 
 interface DropdownInterface extends React.FC<DropdownProps> {
