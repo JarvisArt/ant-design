@@ -164,7 +164,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     });
   };
 
-  const drawWatermark = (
+  const drawText = (
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D,
     drawX: number,
@@ -227,7 +227,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           appendWatermark(canvas.toDataURL(), markWidth);
         };
         img.onerror = () =>
-          drawWatermark(
+          drawText(
             canvas,
             ctx,
             drawX,
@@ -244,7 +244,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         img.referrerPolicy = 'no-referrer';
         img.src = image;
       } else {
-        drawWatermark(
+        drawText(
           canvas,
           ctx,
           drawX,

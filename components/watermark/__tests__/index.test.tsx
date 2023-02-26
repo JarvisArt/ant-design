@@ -65,6 +65,9 @@ describe('Watermark', () => {
   });
 
   it('Invalid image watermark', () => {
+    mockSrcSet.mockImplementation(function fn() {
+      this.onerror?.();
+    });
     const { container } = render(
       <Watermark className="watermark" content="Ant Design" image="https://test.svg" />,
     );
